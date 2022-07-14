@@ -13,7 +13,7 @@
 LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
-SOURCES_FILES	=	so_long.c
+SOURCES_FILES	=	so_long.c get_next_line.c
 
 SOURCES_DIR		=	sources
 HEADER_DIR		=	includes
