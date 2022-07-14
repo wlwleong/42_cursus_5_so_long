@@ -22,6 +22,9 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+void	*ft_memmove(void *dest, const void *src, size_t count);
+char	*ft_strdup(const char *string);
+char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(const char *str1, const char *str2, size_t count);
 void	ft_putstr_fd(char *s, int fd);
