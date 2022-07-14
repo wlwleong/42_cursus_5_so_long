@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wlwleong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 14:15:25 by wlwleong          #+#    #+#             */
-/*   Updated: 2022/07/05 14:17:37 by wlwleong         ###   ########.fr       */
+/*   Created: 2022/07/05 14:13:37 by wlwleong          #+#    #+#             */
+/*   Updated: 2022/07/05 14:15:10 by wlwleong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SO_LONG_H
-# define SO_LONG_H
+#include "../includes/so_long.h"
+#include <stdio.h>
 
-# include <fcntl.h>
-# include <stdlib.h>
-# include <limits.h>
-# define BUFFER_SIZE 42
+int	main(int argc, char *argv[])
+{
+	char	**file;
+	int		i;
 
-/*
-libft
-*/
-char	**ft_split(char const *s, char c);
-
-/*
-get_next_line.c
-*/
-char	*get_next_line(int fd);
-
-#endif
+	if (argc != 2)
+	{
+		printf("Invalid arguments\n");
+		exit(EXIT_FAILURE);
+	}
+	file = ft_split(argv[1], '.');
+	printf("Map name : %s\n", argv[1]);
+	printf("File type : %s\n", file[1]);
+	i = 0;
+	while (file[i])
+		free(file[i++]);
+	free(file);
+	return (0);
+}
