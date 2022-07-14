@@ -17,15 +17,28 @@ static int	ft_file_check(char *filename);
 
 int	main(int argc, char *argv[])
 {
+	int		fd;
+	char	*map;
+
 	if (argc != 2)
 	{
-		printf("Invalid arguments\n");
+		printf("Invalid arguments!\n");
 		exit(EXIT_FAILURE);
 	}
-	if (ft_file_check(argv[1]))
-		printf("File type OK!\n");
-	else
-		printf("Invalid file type.\n");
+	if (!ft_file_check(argv[1]))
+	{
+		printf("Invalid file type!\n");
+		exit(EXIT_FAILURE);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Unable to open map!\n");
+		exit(EXIT_FAILURE);
+	}
+	map = NULL;
+	read(fd, map, 1);
+	printf("map data:\n%s\n", map);
 	return (0);
 }
 
