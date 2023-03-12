@@ -14,11 +14,11 @@
 #include <stdio.h>
 
 static int	ft_file_check(char *filename);
+static int	ft_map_check(int fd);
 
 int	main(int argc, char *argv[])
 {
 	int		fd;
-	char	*map;
 
 	if (argc != 2)
 	{
@@ -36,10 +36,26 @@ int	main(int argc, char *argv[])
 		printf("Unable to open map!\n");
 		exit(EXIT_FAILURE);
 	}
-	map = NULL;
-	read(fd, map, 1);
-	printf("map data:\n%s\n", map);
+	if (!ft_map_check(fd))
+		exit(EXIT_FAILURE);
 	return (0);
+}
+
+static int	ft_map_check(int fd)
+{
+	char	*map;
+
+	map = get_next_line(fd);
+	printf("map data:\n");
+	while (map)
+	{
+		printf("%s", map);
+		free(map);
+		map = get_next_line(fd);
+	}
+	printf("\n");
+	free(map);
+	return (1);
 }
 
 static int	ft_file_check(char *filename)
