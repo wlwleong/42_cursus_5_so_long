@@ -17,8 +17,8 @@ AR		=	ar
 ARFLAGS =	rcs
 RM		=	rm -rf
 
-FILES	=	ft_memmove.c ft_strdup.c ft_strjoin.c ft_split.c ft_strncmp.c
-FILES	+=	ft_putstr_fd.c
+FILES	=	ft_memmove.c ft_putstr_fd.c ft_split.c ft_strdup.c ft_strjoin.c
+FILES	+=	ft_strlen.c ft_strncmp.c
 
 HEADER	=	libft.h
 

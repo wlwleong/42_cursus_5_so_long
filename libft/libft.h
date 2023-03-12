@@ -23,10 +23,11 @@ typedef struct s_list
 }				t_list;
 
 void	*ft_memmove(void *dest, const void *src, size_t count);
+void	ft_putstr_fd(char *s, int fd);
+char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *string);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split(char const *s, char c);
+size_t	ft_strlen(const char *string);
 int		ft_strncmp(const char *str1, const char *str2, size_t count);
-void	ft_putstr_fd(char *s, int fd);
 
 #endif
